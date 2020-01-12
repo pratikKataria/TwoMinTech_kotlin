@@ -20,11 +20,11 @@
             android:background="@drawable/edit_text_background">
 
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/news_cardView_image"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="220dp"
                 android:scaleType="fitXY"
-                android:src="@drawable/images" />
+                android:src="@drawable/images"/>
 
             <TextView
                 android:id="@+id/news_cardview_title"
@@ -36,9 +36,9 @@
                 android:text="Best Oculus Rift Extension Cables"
                 android:fontFamily="@font/circular_sp_ara_bold"
                 android:textSize="18dp"
-                app:layout_constraintEnd_toEndOf="@+id/imageView5"
-                app:layout_constraintStart_toStartOf="@+id/imageView5"
-                app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+                app:layout_constraintEnd_toEndOf="@+id/news_cardView_image"
+                app:layout_constraintStart_toStartOf="@+id/news_cardView_image"
+                app:layout_constraintTop_toBottomOf="@+id/news_cardView_image" />
 
             <TextView
                 android:id="@+id/news_cardView_description"

@@ -63,7 +63,7 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
 //            arrayList.add(x);
 //            rvAdapter.notifyDataSetChanged();
 //        }
-//        for (News x : arrayList) Log.e("NEWS :::::::: ", x.getTitle() + x.getDescription());
+//        for (News x : output) Log.e("NEWS :::::::: ", x.getTitle() + x.getDescription() + ":::::::::::::::::::" + x.getImageUrl());
 
         init_recyclerView(output);
 
@@ -95,7 +95,8 @@ class MyAsyncTask  extends AsyncTask<Void, Void, ArrayList<News>> {
 //                System.out.println("Img :::  "+img.get(i).attr("src"));
                     String titlex = title.get(i).text();
                     String contentx = content.get(i).text();
-                    News n = new News(titlex, contentx);
+                    String imageUrlx = img.get(i).attr("src");
+                    News n = new News(titlex, contentx, imageUrlx);
 
                     list.add(n);
 

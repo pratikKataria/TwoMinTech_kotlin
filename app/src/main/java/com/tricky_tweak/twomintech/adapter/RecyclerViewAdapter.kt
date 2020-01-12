@@ -1,12 +1,15 @@
 package com.tricky_tweak.twomintech.adapter
 
 import android.content.Context
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.RecyclerView.ViewHolder
+import com.bumptech.glide.Glide
 import com.tricky_tweak.twomintech.R
 import com.tricky_tweak.twomintech.model.News
 
@@ -17,9 +20,9 @@ import com.tricky_tweak.twomintech.model.News
 
 class RecyclerViewAdapter(context: Context, list: ArrayList<News>?, currentView: Int) :  RecyclerView.Adapter<ViewHolder>() {
 
-    private var context: Context? = context
+    var context: Context = context
     var list: ArrayList<News>? = list
-    private var currentView : Int ?= currentView
+    var currentView : Int ?= currentView
 
     private val VIEW_TYPE_NEWS = 1
     private val VIEW_TYPE_EMPTY = 0
@@ -58,16 +61,21 @@ class RecyclerViewAdapter(context: Context, list: ArrayList<News>?, currentView:
             }
             VIEW_TYPE_NEWS -> {
                 var newLayout : NewsViewHolder = holder as NewsViewHolder
-                newLayout.setCard(list!!.get(position).title, list!!.get(position).Description)
+                newLayout.setCard(list!!.get(position).title, list!!.get(position).Description, list!!.get(position).ImageUrl)
             }
         }
     }
 
-    class NewsViewHolder(itemView: View) : ViewHolder(itemView) {
+    inner class NewsViewHolder(itemView: View) : ViewHolder(itemView) {
 
-        fun setCard(title : String, desc : String) {
+        fun setCard(title : String, desc : String, imageUrl : String) {
             itemView.findViewById<TextView>(R.id.news_cardview_title).text = title
             itemView.findViewById<TextView>(R.id.news_cardView_description).text = desc
+            var newsThumb : ImageView = itemView.findViewById<ImageView>(R.id.news_cardView_image)
+
+            Log.e("IMageView ", imageUrl)
+            Glide.with(context).load(imageUrl).into(newsThumb)
+
         }
 
     }
