@@ -36,6 +36,7 @@
                 android:text="Best Oculus Rift Extension Cables"
                 android:fontFamily="@font/circular_sp_ara_bold"
                 android:textSize="18dp"
+                android:textColor="@color/black"
                 app:layout_constraintEnd_toEndOf="@+id/news_cardView_image"
                 app:layout_constraintStart_toStartOf="@+id/news_cardView_image"
                 app:layout_constraintTop_toBottomOf="@+id/news_cardView_image" />
@@ -49,6 +50,7 @@
                 android:text="For the last several years Virtual Reality (VR) has been a hot
 topic among avid gamers due to the increase in immersive
 capabilities..."
+                android:textColor="@color/black1"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="@+id/news_cardview_title"
                 app:layout_constraintTop_toBottomOf="@+id/news_cardview_title" />

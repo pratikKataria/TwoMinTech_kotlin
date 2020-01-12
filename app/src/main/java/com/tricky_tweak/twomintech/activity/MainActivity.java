@@ -1,12 +1,19 @@
 package com.tricky_tweak.twomintech.activity;
 
+import android.graphics.Color;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.tricky_tweak.twomintech.R;
 import com.tricky_tweak.twomintech.adapter.RecyclerViewAdapter;
 import com.tricky_tweak.twomintech.model.News;
@@ -32,6 +39,8 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
     ArrayList<News> arrayList = new ArrayList<>();
     RecyclerViewAdapter rvAdapter;
 
+    CollapsingToolbarLayout collapsingToolbarLayout;
+
     MyAsyncTask asyncTask = new MyAsyncTask();
 
     @Override
@@ -40,7 +49,9 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
         setContentView(R.layout.activity_main);
 
         recyclerView = findViewById(R.id.recycler_view);
+        collapsingToolbarLayout = findViewById(R.id.ctl);
 
+        collapsingToolbarLayout.setStatusBarScrimColor(getResources().getColor(R.color.pink));
 
         asyncTask.delegate = this;
 
@@ -68,6 +79,13 @@ public class MainActivity extends AppCompatActivity implements AsyncResponse {
         init_recyclerView(output);
 
     }
+
+//    public void make() {
+//            Window window = this.getWindow();
+//            window.addFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS);
+//            window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
+//    }
+
 }
 
 class MyAsyncTask  extends AsyncTask<Void, Void, ArrayList<News>> {
