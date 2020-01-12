@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Two Min Tech</string>
+    <string name="termsAndConditions">By creating an account you agree to our
+        Terms of Service and Privacy Policy
+    </string>
+    <string name="technology">
+        <u>T E C H</u>
+    </string>
+</resources>

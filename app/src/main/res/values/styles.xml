@@ -1,0 +1,48 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:fontFamily">@font/circular_sp_uiii_book</item>
+    </style>
+
+    <style name="baseEditText">
+        <item name="android:textSize">18sp</item>
+        <item name="android:drawableStart">@drawable/ic_email_grey_24dp</item>
+        <item name="android:hint">Enter email Address</item>
+        <item name="android:background">@drawable/edit_text_background</item>
+        <item name="android:drawablePadding">8dp</item>
+        <item name="android:layout_marginStart">24dp</item>
+        <item name="android:layout_marginEnd">24dp</item>
+        <item name="android:padding">8dp</item>
+        <item name="android:textCursorDrawable">@null</item>
+    </style>
+
+    <style name="emailAddress" parent="@style/baseEditText">
+        <item name="android:drawableStart">@drawable/ic_email_grey_24dp</item>
+        <item name="android:hint">Enter email Address</item>
+    </style>
+
+    <style name="password" parent="@style/baseEditText">
+        <item name="android:drawableStart">@drawable/ic_password_grey_24dp</item>
+        <item name="android:hint">Enter password</item>
+    </style>
+
+    <style name="username" parent="@style/baseEditText">
+        <item name="android:drawableStart">@drawable/ic_person_grey_24dp</item>
+        <item name="android:hint">Enter username</item>
+    </style>
+
+    <style name="materialButton">
+        <item name="android:backgroundTint">@color/colorPrimary</item>
+        <item name="android:layout_marginStart">16dp</item>
+        <item name="android:layout_marginEnd">16dp</item>
+        <item name="android:text">Login</item>
+        <item name="android:fontFamily">@font/circular_sp_uii_book</item>
+        <item name="android:textSize">22sp</item>
+    </style>
+
+</resources>
