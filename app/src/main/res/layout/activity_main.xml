@@ -1,191 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".activity.MainActivity">
 
-    <!-- TODO: Update blank fragment layout -->
-    <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appbar"
+    <FrameLayout
+        android:id="@+id/activity_main_fl"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/activity_main_bnv"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/activity_main_bnv"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/ic_sliding_pane"
-        android:fitsSystemWindows="true">
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:backgroundTint="@color/navigationBackground"
+        app:menu="@menu/bottom_navigation" />
 
-        <com.google.android.material.appbar.CollapsingToolbarLayout
-            android:id="@+id/ctl"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:statusBarScrim="@android:color/transparent"
-            app:layout_collapseMode="parallax"
-            app:layout_scrollFlags="scroll|exitUntilCollapsed">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                app:layout_collapseMode="parallax"
-                app:layout_scrollFlags="scroll|exitUntilCollapsed"
-                tools:layout_editor_absoluteY="18dp">
-
-                <ImageButton
-                    android:id="@+id/hamburgur_ic"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:background="?attr/selectableItemBackgroundBorderless"
-                    android:src="@drawable/ic_hamburgur"
-                    app:layout_collapseMode="parallax"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed" />
-
-                <TextView
-                    android:id="@+id/textView5"
-                    android:layout_width="279dp"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_vertical"
-                    android:layout_marginTop="28dp"
-                    android:fontFamily="@font/circular_sp_ara_bold"
-                    android:text="pratik katariya"
-                    android:textColor="@color/white"
-                    android:textSize="22dp"
-                    app:layout_collapseMode="parallax"
-                    app:layout_constraintStart_toStartOf="@id/hamburgur_ic"
-                    app:layout_constraintTop_toTopOf="@id/hamburgur_ic"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed" />
-
-                <TextView
-                    android:id="@+id/textView9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="4dp"
-                    android:layout_marginTop="8dp"
-                    android:text="Wishlist"
-                    android:textColor="@color/white"
-                    android:textSize="18sp"
-                    app:layout_collapseMode="parallax"
-                    app:layout_constraintStart_toStartOf="@+id/textView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView5"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed" />
-
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:layout_width="65dp"
-                    android:layout_height="65dp"
-                    android:layout_gravity="end"
-                    android:layout_marginEnd="16dp"
-                    android:elevation="5dp"
-                    android:src="@drawable/download"
-                    app:civ_border_color="@color/transparent"
-                    app:civ_border_width="2dp"
-                    app:layout_collapseMode="parallax"
-                    app:layout_constraintBottom_toBottomOf="@+id/textView5"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/textView5"
-                    app:layout_scrollFlags="scroll|exitUntilCollapsed" />
-
-                <androidx.cardview.widget.CardView
-                    android:layout_width="120dp"
-                    android:layout_height="162dp"
-                    android:layout_margin="8dp"
-                    android:layout_marginStart="8dp"
-                    android:clipToPadding="false"
-                    android:elevation="8dp"
-                    app:cardCornerRadius="8dp"
-                    app:layout_constraintStart_toStartOf="@+id/textView5"
-                    app:layout_constraintTop_toBottomOf="@+id/textView9">
-
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:orientation="vertical">
-
-
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </androidx.cardview.widget.CardView>
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-        </com.google.android.material.appbar.CollapsingToolbarLayout>
-
-
-        <View
-            android:layout_width="50dp"
-            android:layout_height="8dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="22dp"
-            android:layout_marginBottom="12dp"
-            android:background="@drawable/edit_text_background" />
-
-    </com.google.android.material.appbar.AppBarLayout>
-
-    <androidx.core.widget.NestedScrollView
-        android:id="@+id/nestedScrollView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_anchor="@+id/appbar"
-        app:layout_anchorGravity="bottom|center"
-        app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="22dp"
-                android:layout_marginEnd="22dp"
-                android:orientation="vertical">
-
-                <TextView
-                    android:id="@+id/textView6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:fontFamily="@font/circular_sp_ara_bold"
-                    android:text="FREARURED"
-                    android:textColor="@color/black"
-                    android:textSize="18dp"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <include
-                    layout="@layout/news_card"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textView6" />
-
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:fontFamily="@font/circular_sp_ara_bold"
-                android:text="Today"
-                android:textColor="@color/black"
-                android:textSize="22sp" />
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                tools:layout_editor_absoluteX="0dp" />
-        </LinearLayout>
-
-    </androidx.core.widget.NestedScrollView>
-</androidx.coordinatorlayout.widget.CoordinatorLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,6 +11,8 @@
             android:label="@string/app_name"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
+        <activity android:name=".activity.NewsDetails">
+        </activity>
         <activity android:name=".activity.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
@@ -18,7 +20,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".activity.MainActivity"> </activity>
+        <activity android:name=".activity.MainActivity">
+        </activity>
         <activity android:name=".activity.Signup"/>
         <activity android:name=".activity.Signin">
         </activity>

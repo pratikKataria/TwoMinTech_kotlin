@@ -7,7 +7,13 @@
     <color name="black">#000000</color>
     <color name="black1">#272727</color>
     <color name="grey">#7B7B7B</color>
+    <color name="ripple">#FFA9C1</color>
     <color name="white">#ffff</color>
     <color name="transparent">#00000000</color>
     <color name="pink">#FFFF638E</color>
+    <color name="blur">#07FFFFFF</color>
+    <color name="lightGrey">#B0B0B0</color>
+
+    <color name="navigationBackground">#F6F5FF</color>
+    <color name="menuIcon">#D4D1F3</color>
 </resources>

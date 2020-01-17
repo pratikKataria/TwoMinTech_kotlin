@@ -7,6 +7,8 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:fontFamily">@font/circular_sp_uiii_book</item>
+        <!--<item name="android:ambientShadowAlpha">0.5</item>-->
+        <!--<item name="android:spotShadowAlpha">0.5</item>-->
     </style>
 
     <style name="baseEditText">

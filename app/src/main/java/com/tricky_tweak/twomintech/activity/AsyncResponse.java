@@ -5,5 +5,5 @@ import com.tricky_tweak.twomintech.model.News;
 import java.util.ArrayList;
 
 public interface AsyncResponse {
-    void processFinish(ArrayList<News> output);
+    void processFinish(Object output);
 }

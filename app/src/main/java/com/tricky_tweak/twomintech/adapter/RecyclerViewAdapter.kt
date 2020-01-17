@@ -12,13 +12,14 @@ import androidx.recyclerview.widget.RecyclerView.ViewHolder
 import com.bumptech.glide.Glide
 import com.tricky_tweak.twomintech.R
 import com.tricky_tweak.twomintech.model.News
+import kotlinx.android.synthetic.main.news_card.view.*
 
 /* create by pratik katairya
 * date 09:01:2020
 * created under android development training
 * */
 
-class RecyclerViewAdapter(context: Context, list: ArrayList<News>?, currentView: Int) :  RecyclerView.Adapter<ViewHolder>() {
+class RecyclerViewAdapter(context: Context, list: ArrayList<News>?, currentView: Int, private val onItemClickListener: onItemClickListener) :  RecyclerView.Adapter<ViewHolder>() {
 
     var context: Context = context
     var list: ArrayList<News>? = list
@@ -61,28 +62,45 @@ class RecyclerViewAdapter(context: Context, list: ArrayList<News>?, currentView:
             }
             VIEW_TYPE_NEWS -> {
                 var newLayout : NewsViewHolder = holder as NewsViewHolder
-                newLayout.setCard(list!!.get(position).title, list!!.get(position).Description, list!!.get(position).ImageUrl)
+                val news = list!!.get(position)
+
+                newLayout.bind(news, onItemClickListener)
+
+//                newLayout.setCard(list!!.get(position).title, list!!.get(position).Description, list!!.get(position).ImageUrl)
             }
         }
     }
 
     inner class NewsViewHolder(itemView: View) : ViewHolder(itemView) {
 
-        fun setCard(title : String, desc : String, imageUrl : String) {
-            itemView.findViewById<TextView>(R.id.news_cardview_title).text = title
-            itemView.findViewById<TextView>(R.id.news_cardView_description).text = desc
-            var newsThumb : ImageView = itemView.findViewById<ImageView>(R.id.news_cardView_image)
+//        fun setCard(title : String, desc : String, imageUrl : String) {
+//            itemView.findViewById<TextView>(R.id.news_cardview_title).text = title
+//            itemView.findViewById<TextView>(R.id.news_cardView_description).text = desc
+//            var newsThumb : ImageView = itemView.findViewById<ImageView>(R.id.news_cardView_image)
+//
+//            Log.e("IMageView ", imageUrl)
+//            Glide.with(context).load(imageUrl).into(newsThumb)
+//
+//        }
 
-            Log.e("IMageView ", imageUrl)
-            Glide.with(context).load(imageUrl).into(newsThumb)
+        fun bind (news : News, clickListener: onItemClickListener) {
+            val nTitle = itemView.findViewById<TextView>(R.id.news_cardview_title)
+            val nDescription = itemView.findViewById<TextView>(R.id.news_cardView_description)
+            val nThumb = itemView.findViewById<ImageView>(R.id.news_cardView_image)
 
+            nTitle.text = news.title
+            nDescription.text = news.Description
+            Glide.with(context).load(news.ImageUrl).into(nThumb)
+
+            itemView.setOnClickListener({ clickListener.onItemClicked(news)})
         }
 
     }
 
-    class EmptyViewHolder(itemView: View) : ViewHolder(itemView) {
+    class EmptyViewHolder(itemView: View) : ViewHolder(itemView)
+}
 
-    }
-
+interface onItemClickListener {
+    fun onItemClicked(news: News)
 }
 
