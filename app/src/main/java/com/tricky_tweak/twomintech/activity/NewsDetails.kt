@@ -22,6 +22,10 @@ import java.io.IOException
 
 class NewsDetails : AppCompatActivity(), AsyncResponse {
 
+    override fun noInternetListener(flag: Int) {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     lateinit var textViewTitle: TextView
     lateinit var textViewContent: TextView
     lateinit var imageView: ImageView

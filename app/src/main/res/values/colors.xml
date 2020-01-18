@@ -11,7 +11,7 @@
     <color name="white">#ffff</color>
     <color name="transparent">#00000000</color>
     <color name="pink">#FFFF638E</color>
-    <color name="blur">#07FFFFFF</color>
+    <color name="blur">#07EFEFEF</color>
     <color name="lightGrey">#B0B0B0</color>
 
     <color name="navigationBackground">#F6F5FF</color>

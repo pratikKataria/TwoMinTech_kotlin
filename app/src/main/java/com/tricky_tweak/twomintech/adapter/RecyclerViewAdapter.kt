@@ -87,7 +87,9 @@ class RecyclerViewAdapter(
 
     }
 
-    class EmptyViewHolder(itemView: View) : ViewHolder(itemView)
+    class EmptyViewHolder(itemView: View) : ViewHolder(itemView) {
+
+    }
 }
 
 interface onItemClickListener {

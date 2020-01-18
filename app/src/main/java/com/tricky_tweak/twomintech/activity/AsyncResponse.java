@@ -6,4 +6,5 @@ import java.util.ArrayList;
 
 public interface AsyncResponse {
     void processFinish(Object output);
+    void noInternetListener(int flag);
 }
