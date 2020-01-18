@@ -26,63 +26,47 @@ class NewsDetails : AppCompatActivity(), AsyncResponse {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    lateinit var textViewTitle: TextView
-    lateinit var textViewContent: TextView
-    lateinit var imageView: ImageView
     lateinit var loadingAnim: LottieAnimationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_news_details)
 
-        textViewTitle = findViewById(R.id.activity_news_details_tv_title)
-        textViewContent = findViewById(R.id.activity_news_details_tv_content)
-        imageView = findViewById(R.id.activity_news_details_img)
         loadingAnim = findViewById(R.id.lottieAnimationView)
 
+        setSupportActionBar(toolbar)
+        toolbar.title = " "
+        back_btn.setOnClickListener { onBackPressed() }
 
-        val bundle: Bundle? = intent.extras
-        val title = bundle!!.getString("newsTitle")
+
+        val bundle: Bundle = intent.extras!!
+        val title = bundle.getString("newsTitle")
         val imageLink = bundle.getString("imageUrl")
         val pageLink = bundle.getString("newsLink")
 
-        textViewTitle.setText(title)
+//        val bundle: Bundle = intent.extras!!
+//        val title = ""
+//        val imageLink =""
+//        val pageLink = ""
+
+
+        activity_news_details_tv_title.text = title
+
+        Glide.with(this).load(imageLink).into(activity_news_details_img)
 
         var newsContent = NewsContent(pageLink!!)
         newsContent.delegate = this
         newsContent.execute()
 
-        Glide.with(this).load(imageLink).into(imageView)
 
-        scrollView.setOnTouchListener { v, event ->
-            when (event!!.action) {
-                MotionEvent.ACTION_SCROLL, MotionEvent.ACTION_MOVE -> {
-
-                    custom_fab.alpha = 0.2f
-                    custom_fab.animate().apply {
-                        interpolator = LinearInterpolator()
-                        duration = 500
-                        alpha(1f)
-                        startDelay = 1000
-                        start()
-                    }
-                }
-                MotionEvent.ACTION_CANCEL, MotionEvent.ACTION_UP -> {
-                    custom_fab.visibility = View.VISIBLE
-                }
-            }
-            false
-        }
-
-        activity_news_details_mb_back.setOnClickListener { onBackPressed() }
     }
 
     override fun processFinish(output: Any?) {
-        textViewContent.text = output as String
+        activity_news_details_tv_content.text = output as String
         if (output.toString().isNotEmpty()) {
             loadingAnim.pauseAnimation()
             loadingAnim.visibility = View.GONE
-            textViewContent.visibility = View.VISIBLE
+            activity_news_details_tv_content.visibility = View.VISIBLE
         }
     }
 
