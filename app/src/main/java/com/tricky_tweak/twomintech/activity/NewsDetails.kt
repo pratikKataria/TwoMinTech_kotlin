@@ -74,7 +74,7 @@ class NewsDetails : AppCompatActivity(), AsyncResponse {
     }
 
     override fun processFinish(output: Any?) {
-        textViewContent!!.text = output as String
+        textViewContent.text = output as String
         if (output.toString().isNotEmpty()) {
             loadingAnim.pauseAnimation()
             loadingAnim.visibility = View.GONE

@@ -19,9 +19,8 @@ import kotlinx.android.synthetic.main.news_card.view.*
 * created under android development training
 * */
 
-class RecyclerViewAdapter(context: Context, list: ArrayList<News>?, currentView: Int, private val onItemClickListener: onItemClickListener) :  RecyclerView.Adapter<ViewHolder>() {
+class RecyclerViewAdapter(var context: Context, list: ArrayList<News>?, currentView: Int, private val onItemClickListener: onItemClickListener) :  RecyclerView.Adapter<ViewHolder>() {
 
-    var context: Context = context
     var list: ArrayList<News>? = list
     var currentView : Int ?= currentView
 
