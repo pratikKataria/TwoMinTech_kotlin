@@ -22,18 +22,17 @@ import android.content.Intent
 import com.tricky_tweak.twomintech.activity.NewsDetails
 import com.tricky_tweak.twomintech.adapter.onItemClickListener
 
-/**
- * A simple [Fragment] subclass.
- */
+/* create by pratik katairya
+ * date 18:01:2020
+ * created under android development training
+ * */
+
 class TrendingFragment : Fragment(), AsyncResponse, onItemClickListener {
 
-    lateinit var recyclerView : RecyclerView
-    lateinit var  recyclerViewAdapter: RecyclerViewAdapter
-    var newsList : ArrayList<News> = ArrayList()
-    var myAsyncTask : MyAsyncTask = MyAsyncTask()
-
-
-
+    private lateinit var recyclerView : RecyclerView
+    private lateinit var  recyclerViewAdapter: RecyclerViewAdapter
+    private var newsList : ArrayList<News> = ArrayList()
+    private var myAsyncTask : MyAsyncTask = MyAsyncTask()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view : View = inflater.inflate(R.layout.fragment_trending, container, false)
@@ -42,9 +41,9 @@ class TrendingFragment : Fragment(), AsyncResponse, onItemClickListener {
         myAsyncTask.execute()
 
         recyclerView = view.findViewById(R.id.recycler_view)
-        var context : Context = this.context!!
+        val context : Context = this.context!!
         recyclerViewAdapter = RecyclerViewAdapter(context, newsList, 0, this)
-        val linearLayoutManager : LinearLayoutManager = LinearLayoutManager(activity)
+        val linearLayoutManager = LinearLayoutManager(activity)
         recyclerView.layoutManager = linearLayoutManager
         recyclerView.adapter = recyclerViewAdapter
         recyclerViewAdapter.notifyDataSetChanged()
@@ -52,14 +51,11 @@ class TrendingFragment : Fragment(), AsyncResponse, onItemClickListener {
         return view
     }
 
-
     override fun processFinish(output: Any) {
-
         for (x in output as ArrayList<News>) {
             newsList.add(x)
             recyclerViewAdapter.notifyDataSetChanged()
         }
-        //        for (News x : output) Log.e("NEWS :::::::: ", x.getTitle() + x.getDescription() + ":::::::::::::::::::" + x.getImageUrl());
     }
 
     override fun onItemClicked(news: News) {

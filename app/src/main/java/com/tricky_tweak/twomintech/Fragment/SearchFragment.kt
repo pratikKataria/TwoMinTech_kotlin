@@ -9,10 +9,11 @@ import android.view.ViewGroup
 
 import com.tricky_tweak.twomintech.R
 
-/**
- * A simple [Fragment] subclass.
- *
- */
+/* create by pratik katairya
+ * date 18:01:2020
+ * created under android development training
+ * */
+
 class SearchFragment : Fragment() {
 
     override fun onCreateView(

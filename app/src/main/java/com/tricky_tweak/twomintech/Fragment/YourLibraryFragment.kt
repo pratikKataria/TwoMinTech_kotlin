@@ -9,11 +9,11 @@ import android.view.ViewGroup
 
 import com.tricky_tweak.twomintech.R
 
+/* create by pratik katairya
+ * date 18:01:2020
+ * created under android development training
+ * */
 
-/**
- * A simple [Fragment] subclass.
- *
- */
 class YourLibraryFragment : Fragment() {
 
     override fun onCreateView(

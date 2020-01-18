@@ -24,8 +24,6 @@ import static com.google.android.material.bottomnavigation.BottomNavigationView.
 public class MainActivity extends AppCompatActivity {
 
 
-    private BottomNavigationView bottomNavigationView;
-
     private static final String TAG = "trending";
     private static final String TAG2 = "search";
     private static final String TAG3 = "library";
@@ -43,35 +41,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
 
-        bottomNavigationView = findViewById(R.id.activity_main_bnv);
-
-
-//        getSupportFragmentManager().beginTransaction().replace(R.id.activity_main_fl, trendingFragment).addToBackStack(TAG).commit();
-
+        BottomNavigationView bottomNavigationView = findViewById(R.id.activity_main_bnv);
         bottomNavigationView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
 
         fm.beginTransaction().add(R.id.activity_main_fl, fragment_library, "3").hide(fragment_library).commit();
         fm.beginTransaction().add(R.id.activity_main_fl, fragment_search, "2").hide(fragment_search).commit();
         fm.beginTransaction().add(R.id.activity_main_fl, fragment_trending, "1").commit();
 
-//        bottomNavigationView.setOnNavigationItemSelectedListener(menuItem -> {
-//            Fragment fragment;
-//            switch (menuItem.getItemId()) {
-//                case R.id.navigation_trending:
-//                    fragment = new TrendingFragment();
-//                    loadFragment(fragment, TAG);
-//                    return  true;
-//                case R.id.navigation_search:
-//                    fragment = new SearchFragment();
-//                    loadFragment(fragment, TAG2);
-//                    return  true;
-//                case R.id.navigation_library:
-//                    fragment = new YourLibraryFragment();
-//                    loadFragment(fragment, TAG3);
-//                    return  true;
-//            }
-//            return false;
-//        });
     }
 
     private BottomNavigationView.OnNavigationItemSelectedListener mOnNavigationItemSelectedListener = menuItem -> {
@@ -91,19 +67,4 @@ public class MainActivity extends AppCompatActivity {
         }
         return false;
     };
-
-    private void loadFragment(Fragment fragment, String xTAG) {
-        FragmentManager fragmentManager = getSupportFragmentManager();
-
-        fragmentManager.addOnBackStackChangedListener(() -> {
-            Fragment fr = fragmentManager.findFragmentByTag(xTAG);
-            if (fragment != null) {
-                fragmentManager.beginTransaction().replace(R.id.activity_main_fl, fr).addToBackStack(xTAG).commit();
-            } else {
-                fragmentManager.beginTransaction().replace(R.id.activity_main_fl, fragment).addToBackStack(xTAG).commit();
-            }
-        });
-
-    }
-
 }
